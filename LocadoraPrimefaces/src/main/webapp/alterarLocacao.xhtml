@@ -1,0 +1,128 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo">
+		<title>Efetuar Locação</title>
+		<f:event type="preRenderView" listener="#{locacaoBacking.init()}" />
+		<script type="text/javascript" src="JavaScript/script.js"></script>
+		<h:form id="formLocacao">
+			<p:tabView>
+				<p:tab title="Efetuar Locação">
+
+					<p:growl id="growl" showDetail="true" life="2000" />
+
+					<p:panelGrid columns="2">
+						<p:outputLabel for="formLocacao" value="Filme:" />
+						<p:selectCheckboxMenu value="#{locacaoBacking.filmes}"
+							label="Selecione Filme" multiple="true" filter="true"
+							filterMatchMode="startsWith" style="width:360px;">
+
+							<f:selectItems value="#{locacaoBacking.listaFilmes}" var="filme"
+								itemLabel="#{filme.nome}" itemValue="#{filme.codigo}" />
+							<p:ajax listener="#{locacaoBacking.atualizarValorTotal()}"
+								update="formLocacao" />
+						</p:selectCheckboxMenu>
+
+						<h:outputText value="Valor: " />
+						<h:outputText id="valor"
+							value="#{locacaoBacking.locacaoUpdate.valor}" />
+
+
+
+					</p:panelGrid>
+					<p:outputLabel value="Forma Pagamento: "
+						style="margin-left:480px; position:absolute; margin-top:-60px;" />
+					<p:selectOneMenu filter="true"
+						style="width:275px; margin-left:650px; position:absolute; margin-top:-60px;"
+						value="#{locacaoBacking.locacaoUpdate.formaPagamentoCodigo.codigo}">
+						<f:selectItem itemValue="" itemLabel="- Selecione FormaPagamento" />
+						<f:selectItems value="#{locacaoBacking.listaFormaPagamentos}"
+							var="formaPagamento" itemValue="#{formaPagamento.codigo}"
+							itemLabel="#{formaPagamento.descricao}" />
+					</p:selectOneMenu>
+					<p:panelGrid>
+
+					</p:panelGrid>
+
+					<h:panelGrid columns="5" cellpadding="10">
+
+						<p:outputLabel value="Cliente:" />
+						<p:selectOneMenu filter="true" style="width:165px;"
+							value="#{locacaoBacking.locacaoUpdate.clienteCodigo.codigo}">
+							<f:selectItem itemValue="" itemLabel="- Selecione Cliente" />
+							<f:selectItems value="#{locacaoBacking.listaClientes}"
+								var="cliente" itemValue="#{cliente.codigo}"
+								itemLabel="#{cliente.nome}" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Funcionario:" />
+						<p:selectOneMenu filter="true" style="width:270px;"
+							value="#{locacaoBacking.locacaoUpdate.funcionarioCodigo.codigo}">
+							<f:selectItem itemValue="" itemLabel="- Selecione Funcionario" />
+							<f:selectItems value="#{locacaoBacking.listaFuncionarios}"
+								var="funcionario" itemValue="#{funcionario.codigo}"
+								itemLabel="#{funcionario.nome}" />
+						</p:selectOneMenu>
+
+						<!-- 						<p:outputLabel value="Data da Locacao:" /> -->
+						<!-- 						<p:calendar value="#{locacaoBacking.dataLocacao}" mask="true" -->
+						<!-- 							converter="javax.faces.DateTime" locale="de" navigator="true" -->
+						<!-- 							pattern="dd/MM/yyyy" size="35" placeholder="Ex: 18/05/1990" -->
+						<!-- 							maxdate="today" yearRange="c-100:c+0"> -->
+						<!-- 						</p:calendar> -->
+
+						<p:outputLabel value="Data da Locacao:" />
+						<p:inputText value="#{locacaoBacking.locacaoUpdate.dataLocacao}"
+							disabled="True" size="32" />
+
+						<p:outputLabel value="Data da Devolução:" />
+						<p:calendar value="#{locacaoBacking.locacaoUpdate.dataDevolucao}"
+							converter="javax.faces.DateTime" locale="de" pattern="dd/MM/yyyy"
+							size="34" placeholder="Ex: 18/05/1990" yearRange="c-100:c+0"
+							mindate="today">
+						</p:calendar>
+
+					</h:panelGrid>
+					<br />
+					<br />
+
+				</p:tab>
+
+
+			</p:tabView>
+
+
+
+			<p:spacer height="50" />
+
+			<p:panelGrid style="border:0px">
+				<p:commandButton value="Salvar" action="#{locacaoBacking.salvar}"
+					update="@form"
+					style="border-radius: 10px; width: 120px; height: 50px;"
+					icon="ui-icon-check">
+					<p:effect type="
+					pulsate" event="click" />
+
+				</p:commandButton>
+				<p:commandButton value="Sair" action="#{locacaoBacking.sairTeste()}"
+					style="border-radius: 10px; width: 120px; height: 50px;"
+					icon="ui-icon-arrowreturnthick-1-w">
+
+				</p:commandButton>
+				<p:commandButton value="Cancelar"
+					action="#{locacaoBacking.limparDados}" update="@form"
+					style="border-radius: 10px; width: 150px; height: 50px;"
+					icon="ui-icon-cancel">
+					<p:effect type="pulsate" event="click" />
+				</p:commandButton>
+			</p:panelGrid>
+
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

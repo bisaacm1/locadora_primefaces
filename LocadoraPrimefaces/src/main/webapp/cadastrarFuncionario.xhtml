@@ -1,0 +1,251 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo">
+
+		<title>Cadastro de funcionarios</title>
+		<h:form id="formCadastroFuncionario">
+			<p:tabView>
+				<p:tab title="Dados Pessoais">
+					<p:growl id="growl" showDetail="true" life="2000" />
+
+					<p:separator />
+					<h:panelGrid columns="4" cellpadding="5">
+						<p:outputLabel value="Nome:" />
+						<p:inputText value="#{funcionarioBacking.nome}" size="40"
+							placeholder="Ex: Isaac Batista Maciel"
+							requiredMessage="Informe o nome" />
+
+						<p:outputLabel value="RG:" />
+						<p:inputMask mask="99.999.999-9" value="#{funcionarioBacking.rg}"
+							size="40" placeholder="Ex: 11.321.456-9" />
+
+						<p:outputLabel value="CPF:" />
+						<p:inputMask mask="999.999.999-99"
+							value="#{funcionarioBacking.cpf}" size="40"
+							placeholder="Ex: 111.321.456-11" />
+
+						<p:outputLabel value="Data de Nascimento:" />
+						<p:calendar value="#{funcionarioBacking.dataNascimento}"
+							mask="true" converter="javax.faces.DateTime" locale="de"
+							navigator="true" pattern="dd/MM/yyyy" size="40"
+							placeholder="Ex: 18/05/1990" maxdate="today"
+							yearRange="c-100:c+0">
+						</p:calendar>
+
+						<p:outputLabel value="Idade:" />
+						<p:inputText value="#{funcionarioBacking.idade}" size="40"
+							placeholder="Ex: 16" requiredMessage="Informe a idade"
+							maxlength="3" />
+
+						<p:outputLabel for="sexo" value="Sexo:" />
+						<p:selectOneRadio id="sexo" value="#{funcionarioBacking.sexo}"
+							unselectable="true" requiredMessage="Informe Sexo">
+							<f:selectItem itemLabel="Masculino" itemValue="M" />
+							<f:selectItem itemLabel="Feminino" itemValue="F" />
+						</p:selectOneRadio>
+
+						<p:outputLabel value="Cidade:" />
+						<p:selectOneMenu filter="true" style="width:315px;"
+							value="#{funcionarioBacking.cidade}"
+							requiredMessage="Informe a Cidade">
+							<f:selectItem itemValue="" itemLabel="- Selecione Cidade" />
+							<f:selectItems value="#{funcionarioBacking.listaCidades}"
+								var="cidade" itemValue="#{cidade.codigo}"
+								itemLabel="#{cidade.nome}" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Estado:" />
+						<p:selectOneMenu filter="true" style="width:315px;"
+							value="#{funcionarioBacking.estado}"
+							requiredMessage="Informe a Estado">
+							<f:selectItem itemValue="" itemLabel="- Selecione Estado" />
+							<f:selectItems value="#{funcionarioBacking.listaEstados}"
+								var="estado" itemValue="#{estado.codigo}"
+								itemLabel="#{estado.nome}" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="CEP:" />
+						<p:inputMask mask="99.999-999" value="#{funcionarioBacking.cep}"
+							size="40" placeholder="11.556.856" />
+
+						<p:outputLabel value="Bairro:" />
+						<p:inputText value="#{funcionarioBacking.bairro}" size="40"
+							placeholder="Ex: Quitauna" />
+
+						<p:outputLabel value="Logradouro:" />
+						<p:inputText value="#{funcionarioBacking.logradouro}" size="40"
+							placeholder="Ex: Rua cordeiros" />
+
+						<p:outputLabel value="Numero:" />
+						<p:inputText value="#{funcionarioBacking.numero}" size="40"
+							placeholder="Ex: 11" />
+
+						<p:outputLabel value="Complemento:" />
+						<p:inputText value="#{funcionarioBacking.complemento}" size="40"
+							placeholder="Ex: bloco 25" />
+
+						<p:outputLabel value="Telefone:" />
+						<p:inputMask mask="(99) 9999-9999"
+							value="#{funcionarioBacking.telefone}" size="40"
+							placeholder="Ex: (11) 9464-9985" />
+
+						<p:outputLabel value="Celular:" />
+						<p:inputMask mask="(99) 99999-9999"
+							value="#{funcionarioBacking.celular}" size="40"
+							placeholder="Ex: (11) 94643-9985" />
+
+						<p:outputLabel value="Email:" />
+						<p:inputText value="#{funcionarioBacking.email}" size="40"
+							placeholder="Ex: jose@gmail.com" />
+
+						<p:outputLabel value="login:" />
+						<p:inputText value="#{funcionarioBacking.login}" size="40"
+							placeholder="Ex: admin" />
+
+						<h:outputText value="Senha: " />
+						<p:password id="feedback" value="#{funcionarioBacking.senha}"
+							feedback="true" size="40" />
+
+					</h:panelGrid>
+				</p:tab>
+
+				<p:tab title="Anotações sobre o funcionario">
+
+					<h:panelGrid columns="1" cellpadding="1">
+						<p:editor />
+
+					</h:panelGrid>
+
+				</p:tab>
+			</p:tabView>
+
+			<p:spacer height="35" />
+
+			<p:panelGrid style="border:0px">
+				<p:commandButton value="Salvar"
+					action="#{funcionarioBacking.salvar}" update="@form"
+					style="border-radius: 10px; width: 120px; height: 50px;"
+					icon="ui-icon-check">
+					<p:effect type="
+					pulsate" event="click" />
+					<!-- 					<p:confirm header="Salvar funcionario" -->
+					<!-- 						message="Confirma dados de funcionario" /> -->
+				</p:commandButton>
+				<p:commandButton value="Sair"
+					action="#{funcionarioBacking.sairTeste()}"
+					style="border-radius: 10px; width: 120px; height: 50px;"
+					icon="ui-icon-arrowreturnthick-1-w">
+
+				</p:commandButton>
+				<p:commandButton value="Cancelar"
+					action="#{funcionarioBacking.limparDados}" update="@form"
+					style="border-radius: 10px; width: 140px; height: 50px;"
+					icon="ui-icon-cancel">
+
+				</p:commandButton>
+			</p:panelGrid>
+
+			<!-- 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"> -->
+
+			<!-- 				<p:tab id="confirm" title="Confirmação"> -->
+			<!-- 					<p:panel header="Confirmação"> -->
+
+			<!-- 						<p:panelGrid columns="4" columnClasses="label, value"> -->
+
+
+			<!-- 							<h:outputText value="Nome: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.nome}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="RG: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.rg}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="CPF: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.cpf}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Data Nascimento: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.dataNascimento}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Idade: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.idade}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Sexo: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.sexo}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Cidade: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.cidade}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Estado: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.estado}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+
+			<!-- 							<h:outputText value="CEP: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.cep}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Bairro: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.bairro}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+
+			<!-- 							<h:outputText value="Logradouro: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.logradouro}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Numero: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.numero}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Complemento: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.complemento}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Telefone: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.telefone}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Celular: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.celular}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Email: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.email}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Login: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.login}" -->
+			<!-- 								style="font-weight: bold" /> -->
+
+			<!-- 							<h:outputText value="Senha: " /> -->
+			<!-- 							<h:outputText value="#{funcionarioBacking.senha}" -->
+			<!-- 								style="font-weight: bold" /> -->
+			<!-- 						</p:panelGrid> -->
+
+			<!-- 					</p:panel> -->
+			<!-- 				</p:tab> -->
+			<!-- 				<p:commandButton value="Sim" type="button" -->
+			<!-- 					styleClass="ui-confirmdialog-yes" /> -->
+			<!-- 				<p:commandButton value="Não" type="button" -->
+			<!-- 					styleClass="ui-confirmdialog-no" /> -->
+
+
+
+			<!-- 			</p:confirmDialog> -->
+
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

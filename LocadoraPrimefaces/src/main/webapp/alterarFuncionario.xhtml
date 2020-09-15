@@ -1,0 +1,168 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo">
+
+		<title>Cadastro de funcionarios</title>
+		<h:form id="formCadastroFuncionario">
+			<p:tabView>
+				<p:tab title="Dados Pessoais">
+					<p:growl id="growl" showDetail="true" life="2000" />
+
+					<p:separator />
+					<h:panelGrid columns="4" cellpadding="5">
+						<p:outputLabel value="Nome:" />
+						<p:inputText value="#{funcionarioBacking.funcionarioUpdate.nome}"
+							size="40" placeholder="Ex: Isaac Batista Maciel"
+							requiredMessage="Informe o nome" disabled="true" />
+
+						<p:outputLabel value="RG:" />
+						<p:inputMask mask="99.999.999-9"
+							value="#{funcionarioBacking.funcionarioUpdate.rg}" size="40"
+							placeholder="Ex: 11.321.456-9" disabled="true" />
+
+						<p:outputLabel value="CPF:" />
+						<p:inputMask mask="999.999.999-99"
+							value="#{funcionarioBacking.funcionarioUpdate.cpf}" size="40"
+							placeholder="Ex: 111.321.456-11" disabled="true" />
+
+						<p:outputLabel value="Data de Nascimento:" />
+						<p:calendar
+							value="#{funcionarioBacking.funcionarioUpdate.dataNascimento}"
+							mask="true" converter="javax.faces.DateTime" locale="de"
+							navigator="true" pattern="dd/MM/yyyy" size="40"
+							placeholder="Ex: 18/05/1990" maxdate="today"
+							yearRange="c-100:c+0" disabled="true">
+						</p:calendar>
+
+						<p:outputLabel value="Idade:" />
+						<p:inputText value="#{funcionarioBacking.funcionarioUpdate.idade}"
+							size="40" placeholder="Ex: 16" requiredMessage="Informe a idade"
+							maxlength="3" disabled="true" />
+
+						<p:outputLabel for="sexo" value="Sexo:" />
+						<p:selectOneRadio id="sexo"
+							value="#{funcionarioBacking.funcionarioUpdate.sexo}"
+							unselectable="true" requiredMessage="Informe Sexo"
+							disabled="true">
+							<f:selectItem itemLabel="Masculino" itemValue="M" />
+							<f:selectItem itemLabel="Feminino" itemValue="F" />
+						</p:selectOneRadio>
+
+						<p:outputLabel value="Cidade:" />
+						<p:selectOneMenu filter="true" style="width:315px;"
+							value="#{funcionarioBacking.funcionarioUpdate.enderecoCodigo.cidadeCodigo.codigo}"
+							requiredMessage="Informe a Cidade">
+							<f:selectItem itemValue="" itemLabel="- Selecione Cidade" />
+							<f:selectItems value="#{clienteBacking.listaCidades}"
+								var="cidade" itemValue="#{cidade.codigo}"
+								itemLabel="#{cidade.nome}" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Estado:" />
+						<p:selectOneMenu filter="true" style="width:315px;"
+							value="#{funcionarioBacking.funcionarioUpdate.enderecoCodigo.cidadeCodigo.estadoCodigo.codigo}"
+							requiredMessage="Informe a Estado">
+							<f:selectItem itemValue="" itemLabel="- Selecione Estado" />
+							<f:selectItems value="#{clienteBacking.listaEstados}"
+								var="estado" itemValue="#{estado.codigo}"
+								itemLabel="#{estado.nome}" />
+						</p:selectOneMenu>
+
+
+						<p:outputLabel value="CEP:" />
+						<p:inputMask mask="99.999-999"
+							value="#{funcionarioBacking.funcionarioUpdate.enderecoCodigo.cep}"
+							size="40" placeholder="11.556.856" />
+
+						<p:outputLabel value="Bairro:" />
+						<p:inputText
+							value="#{funcionarioBacking.funcionarioUpdate.enderecoCodigo.bairro}"
+							size="40" placeholder="Ex: Quitauna" />
+
+						<p:outputLabel value="Logradouro:" />
+						<p:inputText
+							value="#{funcionarioBacking.funcionarioUpdate.enderecoCodigo.bairro}"
+							size="40" placeholder="Ex: Rua cordeiros" />
+
+						<p:outputLabel value="Numero:" />
+						<p:inputText
+							value="#{funcionarioBacking.funcionarioUpdate.enderecoCodigo.numero}"
+							size="40" placeholder="Ex: 11" />
+
+						<p:outputLabel value="Complemento:" />
+						<p:inputText
+							value="#{funcionarioBacking.funcionarioUpdate.enderecoCodigo.complemento}"
+							size="40" placeholder="Ex: bloco 25" />
+
+						<p:outputLabel value="Telefone:" />
+						<p:inputMask mask="(99) 9999-9999"
+							value="#{funcionarioBacking.funcionarioUpdate.contatoCodigo.telefone}"
+							size="40" placeholder="Ex: (11) 9464-9985" />
+
+						<p:outputLabel value="Celular:" />
+						<p:inputMask mask="(99) 99999-9999"
+							value="#{funcionarioBacking.funcionarioUpdate.contatoCodigo.celular}"
+							size="40" placeholder="Ex: (11) 94643-9985" />
+
+						<p:outputLabel value="Email:" />
+						<p:inputText
+							value="#{funcionarioBacking.funcionarioUpdate.contatoCodigo.email}"
+							size="40" placeholder="Ex: jose@gmail.com" />
+
+						<p:outputLabel value="login:" />
+						<p:inputText value="#{funcionarioBacking.funcionarioUpdate.login}"
+							size="40" placeholder="Ex: admin" />
+
+						<h:outputText value="Senha: " />
+						<p:password id="feedback"
+							value="#{funcionarioBacking.funcionarioUpdate.senha}"
+							feedback="true" size="40" />
+					</h:panelGrid>
+				</p:tab>
+
+
+				<p:tab title="Anotações sobre o funcionario">
+
+					<h:panelGrid columns="1" cellpadding="1">
+						<p:editor />
+
+					</h:panelGrid>
+
+				</p:tab>
+			</p:tabView>
+
+			<p:spacer height="35" />
+
+			<p:panelGrid style="border:0px">
+				<p:commandButton value="Salvar"
+					action="#{funcionarioBacking.salvar}" update="@form"
+					style="border-radius: 10px; width: 120px; height: 50px;"
+					icon="ui-icon-check">
+					<p:effect type="
+					pulsate" event="click" />
+
+				</p:commandButton>
+				<p:commandButton value="Sair"
+					action="#{funcionarioBacking.sairTeste()}"
+					style="border-radius: 10px; width: 120px; height: 50px;"
+					icon="ui-icon-arrowreturnthick-1-w">
+
+				</p:commandButton>
+				<p:commandButton value="Cancelar"
+					action="#{funcionarioBacking.limparDados}" update="@form"
+					style="border-radius: 10px; width: 150px; height: 50px;"
+					icon="ui-icon-cancel">
+					<p:effect type="pulsate" event="click" />
+
+				</p:commandButton>
+			</p:panelGrid>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

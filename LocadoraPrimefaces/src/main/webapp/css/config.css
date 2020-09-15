@@ -1,0 +1,473 @@
+@charset "ISO-8859-1";
+
+body {
+	margin: 10px;
+}
+
+.body_teste {
+	margin: 100px;
+}
+
+.combo {
+	width: 450px;
+}
+
+.fonteConsulta {
+	font-size: 25px;
+	margin-top: -5px;
+	margin-left: 250px;
+	position: absolute;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.backgroundRelatorios {
+	background-image:
+		url("https://media.giphy.com/media/xULW8wpjBGuTySoGOs/giphy.gif");
+	background-size: 115%;
+}
+
+.scrollPage {
+	margin-top: 10px;
+	margin-left: 100px;
+	backface-visibility: hidden;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	white-space: nowrap;
+	background: linear-gradient(180deg, rgba(100%, 100%, 100%, 0.785)
+		15.717246401165069%, #000000 49.41466420209489%,
+		rgba(0%, 0%, 0%, 0.852) 51%, rgba(0%, 0%, 0%, 0.852) 51%,
+		rgba(100%, 100%, 100%, 0.734) 88.48932952444967%);
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	border-width: 1px 1px 1px 1px;
+	padding: 10px 20px 10px 20px;
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1), 0px 1px 3px
+		rgba(0, 0, 0, 0.3);
+	color: black;
+	font-size: 16px;
+	font-family: Helvetica Neue;
+	font-weight: 900;
+	font-style: normal;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4)
+}
+
+.backgroundMenu {
+	background-image:
+		url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4480a755-3ccf-49a2-a1de-9c86902eb53a/d5xvbnp-6008071c-1ffa-4200-af92-c8b1ba9e1bd5.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ0ODBhNzU1LTNjY2YtNDlhMi1hMWRlLTljODY5MDJlYjUzYVwvZDV4dmJucC02MDA4MDcxYy0xZmZhLTQyMDAtYWY5Mi1jOGIxYmE5ZTFiZDUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.t9R5CNTDvOtx72JXD-QWr-6XXGFZQQKtCIL_c7NEzDE");
+	background-size: 100%;
+}
+
+.backgroundTelaEfetuarLocacao {
+	/* background-image: url("../imagens/FundoLocadora.png"); */
+	background-image:
+		url("https://www.divino.sk/blog/files/gallery/news/giphy-1.gif");
+	background-size: 95%;
+}
+
+.backgroundTelasConsulta {
+	background-image:
+		url("https://media0.giphy.com/media/9G52mAJTInGVy/source.gif");
+	background-size: 115%;
+}
+
+.backgroundCadastros {
+	background-image:
+		url("https://i.pinimg.com/originals/88/59/69/8859694b997731be62373e2ba3c29cbb.jpg");
+	background-size: 90%;
+}
+
+.font {
+	background: black;
+	color: white;
+	height: 25px;
+	font-size-adjust: 40px;
+	font: 18px Arial, sans-serif;
+}
+
+.centralizar {
+	margin-left: 550px;
+}
+
+.button {
+	backface-visibility: hidden;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	white-space: nowrap;
+	background: rgba(100%, 0%, 0%, 0.432);
+	border-radius: 020px;
+	border: 01.5px solid #ffffff;
+	border-width: 01.5px 01.5px 01.5px 01.5px;
+	padding: 10px 20px 10px 20px;
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1), 0px 1px 3px
+		rgba(0, 0, 0, 0.3);
+	color: #fff;
+	font-size: 16px;
+	font-family: Helvetica Neue;
+	font-weight: 900;
+	font-style: normal;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4)
+}
+
+.button>div {
+	color: #999;
+	font-size: 10px;
+	font-family: Helvetica Neue;
+	font-weight: initial;
+	font-style: normal;
+	text-align: center;
+	margin: 0px 0px 0px 0px
+}
+
+.buttonSalvar>i {
+	font-size: 1em;
+	border-radius: 0px;
+	border: 0px solid transparent;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	position: static
+}
+
+.button>.ld {
+	font-size: initial
+}
+
+.cadastro {
+	position: absolute;
+	top: -10px;
+	width: 35%;
+	padding: 1px 6% 20px 6%;
+	/* 	margin: 0 0 35px 0; */
+	margin: 100px 100px 100px 350px;
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(255, 255, 255, 1);
+	border-radius: 20px;
+}
+
+.cadastroConfirmacao {
+	position: absolute;
+	top: -10px;
+	width: 52%;
+	padding: 10px 6% 20px 6%;
+	/* 	margin: 0 0 35px 0; */
+	margin: 100px 100px 100px 230px;
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(255, 255, 255, 1);
+	border-radius: 20px;
+}
+
+.cadastroReslatorio {
+	position: absolute;
+	top: 100px;
+	width: 30%;
+	padding: 5px 5% 40px 5%;
+	/* 	margin: 0 0 35px 0; */
+	margin: 100px 100px 100px 400px;
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(255, 255, 255, 1);
+	border-radius: 20px;
+}
+
+.textConsulta {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.txtConsulta {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.h1 {
+	font-size: 35px;
+	color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+}
+
+.label {
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 17px;
+	position: relative;
+}
+
+.labelConfirmacaoFilme {
+	color: #ffffff;
+	font-size: 25px;
+	position: absolute;
+	margin-left: -100px;
+	margin-top: -10px;
+}
+
+.labelConfirmacaoFilme1 {
+	color: #ffffff;
+	font-size: 25px;
+	position: absolute;
+	margin-left: 1px;
+	margin-top: -10px;
+}
+
+.labelConfirmacaoCliente {
+	color: #ffffff;
+	font-size: 25px;
+	position: absolute;
+	margin-left: -115px;
+	margin-top: 25px;
+}
+
+.labelConfirmacaoCliente1 {
+	color: #ffffff;
+	font-size: 25px;
+	position: absolute;
+	margin-left: 1px;
+	margin-top: 25px;
+}
+
+.labelConfirmacaoValor {
+	color: #ffffff;
+	font-size: 25px;
+	position: absolute;
+	margin-left: -135px;
+	margin-top: 55px;
+}
+
+.labelConfirmacaoValor1 {
+	color: #ffffff;
+	font-size: 25px;
+	position: absolute;
+	margin-left: 1px;
+	margin-top: 55px;
+}
+
+.labelNomeFilme {
+	color: #ffffff;
+	font-size: 17px;
+	position: absolute;
+	margin-left: 350px;
+	margin-top: -120px;
+}
+
+.labelNomeFilme1 {
+	color: #ffffff;
+	font-size: 17px;
+	position: absolute;
+	margin-left: 413px;
+	margin-top: -120px;
+}
+
+.labelNomeCliente {
+	color: #ffffff;
+	font-size: 17px;
+	position: absolute;
+	margin-left: 350px;
+	margin-top: -80px;
+}
+
+.labelNomeCliente1 {
+	color: #ffffff;
+	font-size: 17px;
+	position: absolute;
+	margin-left: 413px;
+	margin-top: -80px;
+}
+
+.labelValor {
+	color: #ffffff;
+	font-size: 17px;
+	position: absolute;
+	margin-left: 350px;
+	margin-top: -40px;
+}
+
+.labelValor1 {
+	color: #ffffff;
+	font-size: 17px;
+	position: absolute;
+	margin-left: 413px;
+	margin-top: -40px;
+}
+
+.labelPesquisar {
+	color: #ffffff;
+	font-size: 30px;
+	position: relative;
+}
+
+.input {
+	background: #e1f1f6;
+	padding: 4px;
+	border: 1px solid #b2b2b2;
+	-webkit-border-radius: 3px;
+	border-radius: 7px;
+	width: 300%;
+}
+
+.inputTelaConsulta {
+	background: rgba(255, 255, 255, 0.6);
+	padding: 4px;
+	border: 1px solid #b2b2b2;
+	-webkit-border-radius: 3px;
+	border-radius: 7px;
+	width: 300%;
+}
+
+.buttonTelaCadastro {
+	backface-visibility: hidden;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	white-space: nowrap;
+	background: linear-gradient(180deg, rgba(100%, 100%, 100%, 0.785)
+		15.717246401165069%, #000000 49.41466420209489%,
+		rgba(0%, 0%, 0%, 0.852) 51%, rgba(0%, 0%, 0%, 0.852) 51%,
+		rgba(100%, 100%, 100%, 0.734) 88.48932952444967%);
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	border-width: 1px 1px 1px 1px;
+	padding: 10px 20px 10px 20px;
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1), 0px 1px 3px
+		rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	font-size: 16px;
+	font-family: Helvetica Neue;
+	font-weight: 900;
+	font-style: normal;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4)
+}
+
+.buttonLogin {
+	border-radius: 10px;
+	border: 1px solid #ffffff;
+	border-width: 1px 1px 1px 1px
+}
+
+.buttonTelaCadastro>div {
+	color: #999;
+	font-size: 10px;
+	font-family: Helvetica Neue;
+	font-weight: initial;
+	font-style: normal;
+	text-align: center;
+	margin: 0px 0px 0px 0px
+}
+
+.buttonTelaCadastro>i {
+	font-size: 1em;
+	border-radius: 0px;
+	border: 0px solid transparent;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	position: static
+}
+
+.buttonTelaCadastro>.ld {
+	font-size: initial
+}
+
+.buttonPesquisar {
+	margin-left: 340px;
+	backface-visibility: hidden;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	white-space: nowrap;
+	background: linear-gradient(180deg, rgba(100%, 100%, 100%, 0.785)
+		15.717246401165069%, #000000 49.41466420209489%,
+		rgba(0%, 0%, 0%, 0.852) 51%, rgba(0%, 0%, 0%, 0.852) 51%,
+		rgba(100%, 100%, 100%, 0.734) 88.48932952444967%);
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	border-width: 1px 1px 1px 1px;
+	padding: 10px 20px 10px 20px;
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1), 0px 1px 3px
+		rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	font-size: 16px;
+	font-family: Helvetica Neue;
+	font-weight: 900;
+	font-style: normal;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4)
+}
+
+.buttonPesquisar>div {
+	color: #999;
+	font-size: 10px;
+	font-family: Helvetica Neue;
+	font-weight: initial;
+	font-style: normal;
+	text-align: center;
+	margin: 0px 0px 0px 0px
+}
+
+.buttonPesquisar>i {
+	font-size: 1em;
+	border-radius: 0px;
+	border: 0px solid transparent;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	position: static
+}
+
+.buttonPesquisar>.ld {
+	font-size: initial
+}
+
+.buttonTelaCadastroCancelar {
+	margin-left: 260px;
+	backface-visibility: hidden;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	white-space: nowrap;
+	background: linear-gradient(180deg, rgba(100%, 100%, 100%, 0.785)
+		15.717246401165069%, #000000 49.41466420209489%,
+		rgba(0%, 0%, 0%, 0.852) 51%, rgba(0%, 0%, 0%, 0.852) 51%,
+		rgba(100%, 100%, 100%, 0.734) 88.48932952444967%);
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	border-width: 1px 1px 1px 1px;
+	padding: 10px 20px 10px 20px;
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1), 0px 1px 3px
+		rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	font-size: 16px;
+	font-family: Helvetica Neue;
+	font-weight: 900;
+	font-style: normal;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4)
+}
+
+.buttonTelaCadastroCancelar>div {
+	color: #999;
+	font-size: 10px;
+	font-family: Helvetica Neue;
+	font-weight: initial;
+	font-style: normal;
+	text-align: center;
+	margin-left: 260px;
+}
+
+.buttonTelaCadastroCancelar>i {
+	font-size: 1em;
+	border-radius: 0px;
+	border: 0px solid transparent;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	position: static
+}
+
+.buttonTelaCadastroCancelar>.ld {
+	font-size: initial
+}
+
+.combobox {
+	height: 25px;
+	width: 300px;
+	background: rgba(255, 255, 255, 0.5);
+	padding: 4px;
+	border: 1px solid #b2b2b2;
+	-webkit-border-radius: 3px;
+	border-radius: 7px;
+}

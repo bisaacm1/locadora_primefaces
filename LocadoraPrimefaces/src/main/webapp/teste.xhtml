@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo">
+
+		<p:outputLabel value="Estado:" />
+		<p:selectOneMenu filter="true" style="width:270px;"
+			value="#{clienteBacking.estado}" requiredMessage="Informe a Estado">
+			<f:selectItem itemValue="" itemLabel="- Selecione Estado" />
+			<f:selectItems value="#{clienteBacking.carregarComboEstado()}"
+				var="estado" itemValue="#{estado.codigo}" itemLabel="#{estado.nome}" />
+		</p:selectOneMenu>
+
+	</ui:define>
+
+</ui:composition>
